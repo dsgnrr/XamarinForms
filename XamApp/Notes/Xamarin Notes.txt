@@ -1,0 +1,318 @@
+﻿Структура проекта
+<ProjName>: главный проект
+<ProjName>.Android: проект для Android
+App.xaml файл, который определяет ресурсы, общие для всего приложения
+App.xaml.cs файл с кодом C#, с которого начинается выполнение приложения
+MainPage.xaml файл с визуальным интерфейсом для единственной страницы MainPage в виде xaml
+MainPage.xaml.cs файл который содержит логику MainPage на языке C#
+AssemblyInfo.cs файл с кодом, который используется для установки настроек приложения.
+
+Шаблон Content Page:
+public class Page1 : ContentPage
+    {
+        public Page1()
+        {
+            Content = new StackLayout
+            {
+                Children = {
+                    new Label { Text = "Hello Page" }
+                }
+            };
+        }
+    }
+
+Сложные свойства:
+<Label FontSize="16" Padding="30,24,30,0">
+    <Label.FormattedText>
+        <FormattedString>
+            <FormattedString.Spans>
+                <Span Text="Learn more at "/>
+                <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+            </FormattedString.Spans>
+        </FormattedString>
+    </Label.FormattedText>
+</Label>
+Свойство FormattedText представляет форматированный текст (текст со 
+сложным оформлением) и является сложным свойством. 
+
+У объекта FormattedString, в свою очередь, имеет свойство Spans, 
+которое также является сложным свойством и которое представляет набор 
+элементов Span - отдельных кусочков текста. А у каждого элемента Span 
+устанавливается атрибут Text, который задает выводимый текст.
+
+Динамическая загрузка XAML
+public MainPage()
+        {
+            string pageXAML = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n" +
+                "<ContentPage xmlns=\"http://xamarin.com/schemas/2014/forms\"\n" +
+                "xmlns:x=\"http://schemas.microsoft.com/winfx/2009/xaml\"\n" +
+                "x:Class=\"HelloApp.MainPage\"\n" +
+                "Title=\"Main Page\">\n" +
+                "<Label Text=\"XAML in Xamarin\" FontSize=\"36\" />" +
+                "</ContentPage>";
+ 
+            this.LoadFromXaml(pageXAML);
+        }
+
+Поиск элемента по сво-ву x:Name для этого исползуется метод FindByName<Type>("label1");
+
+Расширения разметки XAML, все классы расширений должны реализовать 
+интерфейс IMarkupExtension. Он имеет две версии:
+public interface IMarkupExtension
+{
+    object ProvideValue(IServiceProvider serviceProvider);
+}
+public interface IMarkupExtension<out T> : IMarkupExtension
+{
+    new T ProvideValue(IServiceProvider serviceProvider);
+}
+Метод ProvideValue() вызывается во время загрузки кода xaml и возвращает
+собственно то значение, которое присваивается атрибуту элемента.
+
+В Xamarin Forms есть ряд встроенных расширений:
+x:Static позволяет привязать к атрибуту значение константы, статической переменной, статического свойства или значения перечисления.
+    cs:
+    public const string HEADER = "Xamarin";
+    
+        public static double staticVar = 28;
+ 
+        public MainPage()
+        {
+            InitializeComponent();
+        }
+
+        xaml:
+        <ContentPage 
+            xmlns:local="clr-namespace:HelloApp"
+            >
+        <Label Text="{x:Static local:MainPage.HEADER}"
+         FontSize="{x:Static local:MainPage.staticVar}"
+         VerticalOptions="Center" HorizontalOptions="Center" />
+         </ContentPage>
+x:Type x:Array
+Расширение разметки x:Array позволяет определить массив данных. А расширение x:Type позволяет указать тип данных. Например, воспользуемся элементом ListView для вывода содержимого массива:
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloApp.MainPage">
+    <ListView>
+        <ListView.ItemsSource>
+            <x:Array Type="{x:Type x:String}">
+                <x:String>iPhone 12 Pro</x:String>
+                <x:String>Samsung Galaxy S20</x:String>
+                <x:String>Nokia 9</x:String>
+            </x:Array>
+        </ListView.ItemsSource>
+    </ListView>
+</ContentPage>
+Сложное свойство ListView.ItemsSource в качестве значения принимает массив. В данном случае в определении массива атрибут Type="{x:Type x:String}" указывает, что массив будет содержать данные типа String.
+x:Null
+x:Reference
+StaticResource
+DynamicResource
+Binding
+ConstraintExpression
+
+Создание расширений XAML
+public class ARGBColor : IMarkupExtension
+    {
+        public int Alpha { get; set; }
+        public int Red { get; set; }
+        public int Green { get; set; }
+        public int Blue { get; set; }
+ 
+        public object ProvideValue(IServiceProvider serviceProvider)
+        {
+            return Color.FromRgba(Red, Green, Blue, Alpha);
+        }
+    }
+
+     <Label Text="Welcome to Xamarin.Forms"
+               FontSize="24"
+               !TextColor="{local:ARGBColor Alpha=255, Red=0, Green=77, Blue=64}"
+               BackgroundColor="{local:ARGBColor Alpha=255, Red=128, Green=203, Blue=196}"
+        />
+
+Контейнеры компоновки:
+
+В Xamarin мы можем использовать ряд элементов. Их объединяет то, что все они унаследованы от общего класса View и поэтому наследуют ряд общих свойств.
+
+Для определения содержимого страницы класс страницы ContentPage имеет свойство Content. По умолчанию этому свойству присваивается один элемент Label.
+
+Но свойство Content имеет ограничение - для него можно установить только 
+один элемент. И чтобы помещать на страницу сразу несколько элементов, нам
+надо исользовать один из элементов компоновки. Элемент компоновки 
+представляет класс, который наследуется от базового класса Layout<T>:
+
+- StackLayout
+- AbsoluteLayout
+- RelativeLayout
+- Grid
+- FlexLayout
+
+Все элементы компоновки имеют свойство Children, позволяющее задать или получить вложенные элементы.
+public MainPage()
+    {
+        Label label1 = new Label() { Text = "Первая метка" };
+        Label label2 = new Label() { Text = "Вторая метка" };
+ 
+        StackLayout stackLayout = new StackLayout()
+        {
+            Children = {label1, label2}
+        };
+ 
+        this.Content = stackLayout;   
+    }
+Поскольку коллекция Children представляет собой обычный список, то он 
+поддерживает операции по управлению элементами. В частности, мы можем 
+динамически добавить новые элементы. Например:
+
+
+stackLayout.Children.Add(new Label { Text = "Третья метка" });
+
+StackLayout:
+StackLayout определяет размещение элементов в виде горизонтального или вертикального стека. Для позиционирования элементо он определяет два свойства:
+
+Orientation: определяет ориентацию стека - вертикальный или горизонтальный
+
+Spacing: устанавливает пространство между элементами в стеке, по молчанию равно 6 единицам
+
+ScrollView:
+
+При создании стека или любого другого элемента компоновки может 
+сложиться ситуация, когда не все элементы будут помещаться на экране. В 
+этом случае необходимо создать прокрутку с помощью элемента ScrollView:
+class MainPage : ContentPage
+{
+    public MainPage()
+    {
+        StackLayout stackLayout = new StackLayout();
+        for (int i = 1; i < 20; i++)
+        {
+            Label label = new Label
+            {
+                Text = "Метка " + i,
+                FontSize = 23
+            };
+            stackLayout.Children.Add(label);
+        }
+        ScrollView scrollView = new ScrollView();
+        scrollView.Content = stackLayout;
+        this.Content = scrollView;
+    }
+}
+
+AbsoluteLayout:
+
+AbsoluteLayout позволяет задавать вложенным элементам абсолютные координаты расположения на странице и подходит больше для тех случаев, когда нам нужны элементы с точными координатами.
+
+Для создания абсолютного позиционирования нам надо определить прямоугольную область, которую будет занимать элемент. Как правило, для этого используется структура Rectangle, которая представляет прямоугольник:
+
+int x = 10; // позиция координаты X на странице
+int y = 10; // позиция координаты Y на странице
+int width = 100; // ширина блока элемента
+int height = 80;    // высота блока элемента
+Rectangle rect = new Rectangle(x, y, width, height);
+Если нам неизвестна точная ширина и длина элемента, то мы можем ограничиться позицией, с которой начинается элемент, в виде структуры Point:
+
+int x = 10; // позиция координаты X на странице
+int y = 10; // позиция координаты Y на странице
+Point point = new Point(x, y);
+
+Add(View view): просто добавляет элемент в контейнер
+
+Add(View view, Point point): элемент будет располагаться на странице, начиная с точки point
+
+Add(View view, Rectangle rect): элемент будет располагаться на странице в области, ограниченной прямоугольником rect
+
+RelativeLayout:
+Контейнер RelativeLayout задает относительное позиционирование вложенных элементов относительно сторон контейнера или относительно других элементов.
+
+Позиционирование и размеры элементов внутри RelativeLayout определяются с помощью ограничений, которые в XAML представляют следующие прикрепляемые свойства:
+
+RelativeLayout.XConstraint: задает расположение относительно оси X
+
+RelativeLayout.YConstraint: задает расположение относительно оси Y
+
+RelativeLayout.HeightConstraint: задает высоту элемента
+
+RelativeLayout.WidthConstraint: задает ширину элемента
+
+RelativeLayout.HeightConstraint и RelativeLayout.WidthConstraint устанавливаются с помощью числоого значения. А RelativeLayout.XConstraint и RelativeLayout.YConstraint задаются с помощью расширения разметки ConstraintExpression, которое включает следующую информацию:
+
+Type: тип ограничения, который указывает, применяется ограничение относительно контейнера или других элементов
+
+Property: свойство, на основании которого устанавливается ограничение
+
+Factor: множитель, на который умножается длина между границами контейнера (0 и 1 - крайние значения)
+
+Constant: смещение относительно контейнера или относительно элемента (в зависимости от значения свойства Type)
+
+ElementName: название элемента, к которому применяется ограничение
+
+Например, позиционирование элемента BoxView в RelativeLayout в XAML:
+ <RelativeLayout>
+        <BoxView WidthRequest="100" HeightRequest="100" Color="Blue"
+            RelativeLayout.XConstraint= "{ConstraintExpression 
+                Type=RelativeToParent, 
+                Property=Width,
+                Factor=0.5, 
+                Constant=-50}"  
+        />
+    </RelativeLayout>
+
+В данном случае у BoxView устанавливается ограничение RelativeLayout.XConstraint, которое задает смещение относительно оси X, то есть остступ слева. По умолчанию он равен. В данном случае Type=RelativeToParent указывает, что смещение будет идти относительно контейнера. Property=Width говорит, что при вычислении значения используется ширина (контейнера).
+
+Выражение Factor=0.5 указывает, что для вычисления значения надо умножить предельное значение свойства из Property на 0.5, то есть ширина контейнера умножается на 0.5.
+
+Grid:
+Отступы
+Класс Grid определяет два специальных свойства для создания отступов:
+
+ColumnSpacing: определяет пространство между столбцами
+
+RowSpacing: определяет пространство между строками
+
+Например:
+
+<Grid ColumnSpacing="5">
+  <Grid.ColumnDefinitions>
+    <ColumnDefinitions Width="*" />
+    <ColumnDefinitions Width="*" />
+  </Grid.ColumnDefinitions>
+</Grid>
+Или в коде C#:
+
+var grid = new Grid { ColumnSpacing = 5 };
+grid.ColumnDefnitions.Add(new ColumnDefinition { Width = new GridLength (1, GridUnitType.Star)});
+grid.ColumnDefnitions.Add(new ColumnDefinition { Width = new GridLength (1, GridUnitType.Star)});
+
+Выравнивание по горизонтали и вертикали
+Все элементы, используемые при создании интерфейса, наследуются от класса View, который определяет два свойства HorizontalOptions и VerticalOptions. Они управляют выравнивание элемента соответственно по горизонтали и по вертикали.
+
+В качестве значения они принимают структуру LayoutOptions. Данная структура имеет ряд свойств, которые хранят объекты опять же LayoutOptions:
+
+Start: выравнивание по левому краю (выравнивание по горизонтали) или по верху (выравнивание по вертикали)
+
+Center: элемент выравнивается по центру
+
+End: выравнивание по правому краю (выравнивание по горизонтали) или по низу (выравнивание по вертикали)
+
+Fill: элемент заполняет все пространство контейнера
+
+StartAndExpand: аналогичен опции Start с применением растяжения
+
+CenterAndExpand: аналогичен опции Center с применением растяжения
+
+EndAndExpand: аналогичен опции End с применением растяжения
+
+FillAndExpand: аналогичен опции Fill с применением растяжения
+
+Выравнивание текста внутри элемента
+Выравнивание текста по горизонтали и вертикали задается с помощью свойств HorizontalTextAlignment и VerticalTextAlignment соответственно. В качестве значения эти свойства принимают одну из констант перечисления TextAlignment:
+
+Start: текст выравнивается по левому краю по горизонтали или по верху по вертикали
+
+Center: текст выравнивается по центру
+
+End: текст выравнивается по правому краю по горизонтали или по низу по вертикали

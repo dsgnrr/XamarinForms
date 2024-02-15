@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamApp.TikTakToe"
+             BackgroundColor="#2F70AF">
+    
+    <Grid x:Name="gamePage">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.4*"/>
+        </Grid.RowDefinitions>
+        <Frame BackgroundColor="#00457E" CornerRadius="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Text="TicTаcToe" VerticalTextAlignment="Center" TextColor="White" FontSize="26"/>
+                <Label
+                    x:Name="walkId"
+                    Grid.Column="1"
+                    Text="Now: X"
+                    TextColor="White"
+                    FontSize="26"
+                    VerticalTextAlignment="Center"/>
+            </Grid>
+        </Frame>
+        <Button Grid.Row="3"
+                Text="New game"
+                FontSize="20"
+                CornerRadius="8"
+                BackgroundColor="#B9848C"
+                Margin="30"
+                Clicked="startNewGame"></Button>
+    </Grid>
+</ContentPage>
