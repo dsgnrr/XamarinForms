@@ -11,7 +11,8 @@ namespace XamApp
             InitializeComponent();
             //MainPage = new TikTakToe();
             //MainPage = new MainPage();
-            MainPage = new WishList();
+            //MainPage = new WishList();
+            MainPage = new CustomFragment();
         }
 
         protected override void OnStart()

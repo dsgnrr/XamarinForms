@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamApp.CustomFragment">
+    <Grid x:Name="mainPage"
+          ColumnSpacing="0"
+          RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Frame BackgroundColor="#00457E" CornerRadius="0">
+            <Label Text="Custom Fragment" VerticalTextAlignment="Center" TextColor="White" FontSize="26"/>
+        </Frame>
+        <Grid
+            Grid.Row="1"
+            x:Name="fragmentPage"/>
+    </Grid>
+</ContentPage>
