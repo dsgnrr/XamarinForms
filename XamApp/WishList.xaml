@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamApp.WishList">
+    <Grid x:Name="mainPage">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Frame BackgroundColor="#00457E" CornerRadius="0">
+            <Label Text="WishList" VerticalTextAlignment="Center" TextColor="White" FontSize="26"/>
+        </Frame>
+        <Label x:Name="totalPrice" Grid.Row="1" BackgroundColor="#2F70AF" TextColor="White" VerticalTextAlignment="Center" FontSize="18"/>
+        <ScrollView Grid.Row="2">
+            <StackLayout
+                x:Name="giftListView"/>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -13,23 +13,7 @@ namespace XamApp
         public MainPage()
         {
             InitializeComponent();
-            Grid grid = new Grid()
-            { 
-                RowDefinitions =
-                {
-                    new RowDefinition(),
-                    new RowDefinition()
-                }
-            };
-            
-            Content = grid;
         }
-        public void buildGameField() 
-        {
-            
-        }
-        private void ClickHandler(object sender, EventArgs e)
-        {
-        }
+
     }
 }

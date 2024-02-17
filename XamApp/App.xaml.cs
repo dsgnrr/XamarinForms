@@ -9,7 +9,9 @@ namespace XamApp
         public App()
         {
             InitializeComponent();
-            MainPage = new TikTakToe();
+            //MainPage = new TikTakToe();
+            //MainPage = new MainPage();
+            MainPage = new WishList();
         }
 
         protected override void OnStart()
