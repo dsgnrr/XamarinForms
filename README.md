@@ -1,4 +1,4 @@
-## TicTacToe
+## WishList
 [XAML](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp/WishList.xaml)<br>
 [C# code](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp/WishList.xaml.cs)<br>
  ![alt text](https://github.com/dsgnrr/XamarinForms/blob/master/Results/t2/result.gif)
