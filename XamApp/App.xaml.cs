@@ -1,4 +1,5 @@
 ﻿using System;
+using XamApp.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,7 +13,8 @@ namespace XamApp
             //MainPage = new TikTakToe();
             //MainPage = new MainPage();
             //MainPage = new WishList();
-            MainPage = new CustomFragment();
+            //MainPage = new CustomFragment();
+            MainPage = new MyPush();
         }
 
         protected override void OnStart()

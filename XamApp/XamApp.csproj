@@ -23,13 +23,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="CustomFragment.xaml">
+    <EmbeddedResource Update="Pages\CustomFragment.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="TikTakToe.xaml">
+    <EmbeddedResource Update="Pages\MyPush.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="WishList.xaml">
+    <EmbeddedResource Update="Pages\TikTakToe.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\WishList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

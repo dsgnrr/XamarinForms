@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using XamApp.Messages;
+using XamApp.Interfaces;
 using Xamarin.Forms;
 
 namespace XamApp.Classes

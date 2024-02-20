@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using XamApp.Interfaces;
 using XamApp.Messages;
 
 [assembly: Xamarin.Forms.Dependency(typeof(MessageAndroid))]

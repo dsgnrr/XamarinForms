@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace XamApp.Messages
+namespace XamApp.Interfaces
 {
     public interface IMessage
     {
