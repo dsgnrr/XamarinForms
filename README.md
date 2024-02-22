@@ -1,4 +1,10 @@
 ## Custom Push-Notify
+* Bad feedback <br>
+ ![alt text](https://github.com/dsgnrr/XamarinForms/blob/master/Results/t4/bad_app.gif)<br>
+* Good feedback <br>
+ ![alt text](https://github.com/dsgnrr/XamarinForms/blob/master/Results/t4/good_app.gif)<br>
+
+## Custom Push-Notify
 [AdnroidNotificationManager](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp.Android/AndroidServices/AdnroidNotificationManager.cs)<br>
 [MyPush Page](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp/Pages/MyPush.xaml)<br>
 [INotificationManager](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp/Interfaces/INotificationManager.cs)<br>
