@@ -15,7 +15,8 @@ namespace XamApp
             //MainPage = new WishList();
             //MainPage = new CustomFragment();
             //MainPage = new MyPush();
-            MainPage = new TellUs();
+            //MainPage = new TellUs();
+            MainPage = new Graphic();
         }
 
         protected override void OnStart()

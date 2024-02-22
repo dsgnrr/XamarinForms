@@ -1,3 +1,6 @@
+## [DONATELLO]
+![alt_text](https://github.com/dsgnrr/XamarinForms/blob/master/Results/t5/result.png)
+
 ## Tell about us dialog
 [RatingDialog](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp.Android/AndroidServices/RatingDialog.cs)
 [IAlert](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp/Interfaces/IAlert.cs)
