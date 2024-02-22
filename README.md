@@ -1,4 +1,5 @@
 ## [DONATELLO]
+[Logic](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp/Pages/TellUs.xaml.cs)
 ![alt_text](https://github.com/dsgnrr/XamarinForms/blob/master/Results/t5/result.png)
 
 ## Tell about us dialog
