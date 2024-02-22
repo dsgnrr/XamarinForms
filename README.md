@@ -1,4 +1,7 @@
-## Custom Push-Notify
+## Tell about us dialog
+[RatingDialog](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp.Android/AndroidServices/RatingDialog.cs)
+[IAlert](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp/Interfaces/IAlert.cs)
+[TellUs Page](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp/Pages/TellUs.xaml.cs)
 * Bad feedback <br>
  ![alt text](https://github.com/dsgnrr/XamarinForms/blob/master/Results/t4/bad_app.gif)<br>
 * Good feedback <br>
