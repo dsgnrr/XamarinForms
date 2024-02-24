@@ -1,3 +1,11 @@
+## NoSQL_HELL
+[Logic](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp/Pages/FirbasePage.xaml.cs) <br>
+* App<br>
+ ![alt_text](https://github.com/dsgnrr/XamarinForms/blob/master/Results/t7/result.gif)
+* Students <br>
+ ![alt text](https://github.com/dsgnrr/XamarinForms/blob/master/Results/t7/db_set.png)<br>
+
+
 ## Wolf stronger then lion. But he doesn’t perform in the circus
 [Logic](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp/Pages/FablePage.xaml.cs) <br>
 ![alt_text](https://github.com/dsgnrr/XamarinForms/blob/master/Results/t6/result.gif)

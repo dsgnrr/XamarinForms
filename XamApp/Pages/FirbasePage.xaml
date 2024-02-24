@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamApp.Pages.FirbasePage">
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Entry
+                x:Name="fNameEntry"
+                Grid.Row="0"
+                Grid.Column="0"
+                Placeholder="First name"/>
+            <Entry
+                x:Name="lNameEntry"
+                Grid.Row="0"
+                Grid.Column="1"
+                Placeholder="Last name"/>
+            <Entry
+                x:Name="gNameEntry"
+                Grid.Row="1"
+                Grid.Column="0"
+                Placeholder="Group name"/>
+            <Entry
+                x:Name="specEntry"
+                Grid.Row="1"
+                Grid.Column="1"
+                Placeholder="Speciality"/>
+            <Button
+                Clicked="addStudent_Click"
+                Text="Add student"
+                Grid.Row="2"
+                Grid.ColumnSpan="2"/>
+        </Grid>
+        <StackLayout x:Name="studentsStack"/>
+    </StackLayout>
+</ContentPage>
