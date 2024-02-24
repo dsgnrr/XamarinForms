@@ -17,6 +17,7 @@ namespace XamApp
             //MainPage = new MyPush();
             //MainPage = new TellUs();
             //MainPage = new Graphic();
+            MainPage = new FablePage();
         }
 
         protected override void OnStart()

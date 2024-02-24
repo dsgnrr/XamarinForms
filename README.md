@@ -1,3 +1,7 @@
+## Wolf stronger then lion. But he doesn’t perform in the circus
+[Logic](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp/Pages/FablePage.xaml.cs) <br>
+![alt_text](https://github.com/dsgnrr/XamarinForms/blob/master/Results/t6/result.gif)
+
 ## [DONATELLO]
 [Logic](https://github.com/dsgnrr/XamarinForms/blob/master/XamApp/Pages/TellUs.xaml.cs) <br>
 ![alt_text](https://github.com/dsgnrr/XamarinForms/blob/master/Results/t5/result.png)
