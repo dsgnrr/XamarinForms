@@ -19,7 +19,7 @@ namespace XamApp.Classes
         public async Task<List<Student>> GetAllStudents()
         {
             var students = await firebase
-            .Child("Students") // Это будет вашей "таблицей"
+            .Child("Students")
             .OnceAsync<Student>();
 
             return students.Select(item => new Student
