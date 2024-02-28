@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamApp.Pages.BankPage">
+    <StackLayout>
+        <Picker
+            SelectedIndexChanged="SenderPicker_SelectedIndexChanged"
+            x:Name="senderPicker"/>
+        <Picker
+            SelectedIndexChanged="ReceiverPicker_SelectedIndexChanged"
+            x:Name="receiverPicker"/>
+        <Entry
+            x:Name="amountEntry"
+            Placeholder="Enter sum"/>
+        <Button
+            x:Name="sendButton"
+            Text="Send"
+            Clicked="sendButton_Clicked"/>
+        <Button
+            x:Name="cancelButton"
+            Text="Cancel"
+            Clicked="cancelButton_Clicked"/>
+        <ScrollView>
+            <TableView x:Name="accountsTableView">
+                <TableRoot>
+                    <TableSection Title="Accounts">
+                        <TextCell Text="{Binding Owner.LastName}" Detail="{Binding Owner.FirstName}" />
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </ScrollView>
+        
+    </StackLayout>
+</ContentPage>

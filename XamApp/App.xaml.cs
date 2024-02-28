@@ -20,7 +20,7 @@ namespace XamApp
             //MainPage = new FablePage();
             //MainPage = new FirbasePage();
             //MainPage = new CalendarPage();
-
+            MainPage = new BankPage();
         }
 
         protected override void OnStart()
