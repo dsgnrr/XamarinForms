@@ -18,7 +18,9 @@ namespace XamApp
             //MainPage = new TellUs();
             //MainPage = new Graphic();
             //MainPage = new FablePage();
-            MainPage = new FirbasePage();
+            //MainPage = new FirbasePage();
+            //MainPage = new CalendarPage();
+
         }
 
         protected override void OnStart()

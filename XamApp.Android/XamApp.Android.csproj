@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AndroidServices\AdnroidNotificationManager.cs" />
+    <Compile Include="AndroidServices\CalendarManager.cs" />
     <Compile Include="AndroidServices\RatingDialog.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MessageAndroid.cs" />
